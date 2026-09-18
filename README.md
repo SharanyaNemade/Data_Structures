@@ -5,7 +5,7 @@
 
 
 
-1. Print all elements of an array
+**1. Print all elements of an array**
 
 
 
@@ -26,7 +26,7 @@ class HelloWorld
 
 
 
-2. Find the sum of all elements
+**2. Find the sum of all elements**
 
 
 
@@ -51,7 +51,7 @@ class HelloWorld
 
 
 
-3. Find the largest element
+**3. Find the largest element**
 
 
 
@@ -79,7 +79,7 @@ Console.WriteLine(largest);
 
 
 
-4. Find the smallest element
+**4. Find the smallest element**
 
 
 
@@ -107,7 +107,7 @@ class HelloWorld
 
 
 
-5. Count even and odd numbers
+**5. Count even and odd numbers**
 
 
 
@@ -146,7 +146,7 @@ class HelloWorld
 
 
 
-6. Calculate average of array elements
+**6. Calculate average of array elements**
 
 
 
@@ -178,7 +178,7 @@ class HelloWorld
 
 
 
-7. Find Second Largest
+**7. Find Second Largest**
 
 
 
@@ -217,7 +217,7 @@ class HelloWorld
 
 
 
-8. Find Second Smallest
+**8. Find Second Smallest**
 
 
 
@@ -250,4 +250,159 @@ class HelloWorld
         Console.WriteLine("Smallest = " + smallest);
         Console.WriteLine("Second Smallest = " + secondSmallest);
     }
+}
+
+
+
+
+
+
+**9. Reverse an array**
+
+
+
+using System;
+class HelloWorld
+{
+  static void Main()
+  {
+    int[] numbers = { 1, 2, 3, 4, 5 };
+
+	int left = 0;
+	int right = numbers.Length - 1;
+
+while (left < right)
+{
+    int temp = numbers[left];
+
+    numbers[left] = numbers[right];
+    numbers[right] = temp;
+
+    left++;
+    right--;
+}
+
+Console.WriteLine(string.Join(", ", numbers));
+  }
+}
+
+
+
+
+**10. Move all zeroes to the end**
+
+
+
+using System;
+class HelloWorld
+{
+  static void Main()
+  {
+    int[] numbers = { 0, 1, 0, 3, 12 };
+
+    int index = 0;
+
+    for (int i = 0; i < numbers.Length; i++)
+    {
+        if (numbers[i] != 0)
+    {
+        numbers[index] = numbers[i];
+        index++;
+    }
+}
+
+while (index < numbers.Length)
+{
+    numbers[index] = 0;
+    index++;
+}
+
+Console.WriteLine(string.Join(", ", numbers));
+  }
+}
+
+
+
+
+**11. Move negative numbers to one side**
+
+
+
+using System;
+class HelloWorld
+{
+  static void Main()
+  {
+    int[] numbers = { -1, 2, -3, 4, -5, 6 };
+
+    int left = 0;
+    int right = numbers.Length - 1;
+
+
+    while (left <= right)
+    {
+        if (numbers[left] < 0)
+    {
+        left++;
+    }
+    
+    else if (numbers[right] >= 0)
+    {
+        right--;
+    }
+    
+    else
+    {
+        int temp = numbers[left];
+        numbers[left] = numbers[right];
+        numbers[right] = temp;
+
+        left++;
+        right--;
+    }
+}
+
+Console.WriteLine(string.Join(", ", numbers));
+  }
+}
+
+
+
+
+
+
+**12. Difference between maximum and minimum**
+
+
+
+
+using System;
+class HelloWorld
+{
+  static void Main()
+  {
+    int[] numbers = { 10, 5, 30, 20 };
+
+    int max = numbers[0];
+    int min = numbers[0];
+
+    for (int i = 1; i < numbers.Length; i++)
+    {
+        if (numbers[i] > max)
+        {
+            max = numbers[i];
+        }
+
+    if (numbers[i] < min)
+        {
+            min = numbers[i];
+        }
+    }
+
+    int difference = max - min;
+
+    Console.WriteLine("Maximum = " + max);
+    Console.WriteLine("Minimum = " + min);
+    Console.WriteLine("Difference = " + difference);
+  }
 }
