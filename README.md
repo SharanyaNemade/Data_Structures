@@ -877,3 +877,44 @@ class HelloWorld
 }
 
 
+
+
+
+**Searching — Linear Search**
+
+
+**1. Linear Search**
+
+
+
+using System;
+
+class Program
+{
+    static void Main()
+    {
+        int[] numbers = { 10, 20, 30, 40, 50 };
+
+        int searchValue = 30;
+
+        int index = -1;
+
+        for (int i = 0; i < numbers.Length; i++)
+        {
+            if (numbers[i] == searchValue)
+            {
+                index = i;
+                break;
+            }
+        }
+
+        if (index != -1)
+        {
+            Console.WriteLine("Index = " + index);
+        }
+        else
+        {
+            Console.WriteLine("Element not found.");
+        }
+    }
+}
