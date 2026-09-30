@@ -920,3 +920,106 @@ class Program
 }
 
 
+
+**2. Search for the First Occurrence**
+
+
+
+using System;
+
+class Program
+{
+    static void Main()
+    {
+        int[] numbers = { 10, 20, 30, 20, 40 };
+
+        int searchValue = 20;
+
+        int firstIndex = -1;
+
+        for (int i = 0; i < numbers.Length; i++)
+        {
+            if (numbers[i] == searchValue)
+            {
+                firstIndex = i;
+                break;
+            }
+        }
+
+        if (firstIndex != -1)
+        {
+            Console.WriteLine("First occurrence = " + firstIndex);
+        }
+        else
+        {
+            Console.WriteLine("Element not found.");
+        }
+    }
+}
+
+
+
+**3. Search for the Last Occurrence**
+
+
+
+using System;
+
+class Program
+{
+    static void Main()
+    {
+        int[] numbers = { 10, 20, 30, 20, 40 };
+
+        int searchValue = 20;
+
+        int lastIndex = -1;
+
+        for (int i = 0; i < numbers.Length; i++)
+        {
+            if (numbers[i] == searchValue)
+            {
+                lastIndex = i;
+            }
+        }
+
+        if (lastIndex != -1)
+        {
+            Console.WriteLine("Last occurrence = " + lastIndex);
+        }
+        else
+        {
+            Console.WriteLine("Element not found.");
+        }
+    }
+}
+
+
+
+**4. Count Occurrences of an Element**
+
+
+
+using System;
+
+class Program
+{
+    static void Main()
+    {
+        int[] numbers = { 10, 20, 30, 20, 40, 20 };
+
+        int searchValue = 20;
+
+        int count = 0;
+
+        for (int i = 0; i < numbers.Length; i++)
+        {
+            if (numbers[i] == searchValue)
+            {
+                count++;
+            }
+        }
+
+        Console.WriteLine("Count = " + count);
+    }
+}
