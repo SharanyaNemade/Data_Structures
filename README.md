@@ -1023,3 +1023,163 @@ class Program
         Console.WriteLine("Count = " + count);
     }
 }
+
+
+
+
+**5. Binary Search**
+
+
+
+using System;
+
+class Program
+{
+    static void Main()
+    {
+        int[] numbers = { 10, 20, 30, 40, 50, 60 };
+
+        int searchValue = 40;
+
+        int left = 0;
+        int right = numbers.Length - 1;
+
+        int index = -1;
+
+        while (left <= right)
+        {
+            int middle = left + (right - left) / 2;
+
+            if (numbers[middle] == searchValue)
+            {
+                index = middle;
+                break;
+            }
+            else if (numbers[middle] < searchValue)
+            {
+                left = middle + 1;
+            }
+            else
+            {
+                right = middle - 1;
+            }
+        }
+
+        if (index != -1)
+        {
+            Console.WriteLine("Index = " + index);
+        }
+        else
+        {
+            Console.WriteLine("Element not found.");
+        }
+    }
+}
+
+
+
+
+**6. Find First Occurrence Using Binary Search **
+
+
+using System;
+
+class Program
+{
+    static void Main()
+    {
+        int[] numbers = { 10, 20, 20, 20, 30, 40 };
+
+        int searchValue = 20;
+
+        int left = 0;
+        int right = numbers.Length - 1;
+
+        int firstIndex = -1;
+
+        while (left <= right)
+        {
+            int middle = left + (right - left) / 2;
+
+            if (numbers[middle] == searchValue)
+            {
+                firstIndex = middle;
+
+                // Continue searching on the left side
+                right = middle - 1;
+            }
+            else if (numbers[middle] < searchValue)
+            {
+                left = middle + 1;
+            }
+            else
+            {
+                right = middle - 1;
+            }
+        }
+
+        if (firstIndex != -1)
+        {
+            Console.WriteLine("First occurrence = " + firstIndex);
+        }
+        else
+        {
+            Console.WriteLine("Element not found.");
+        }
+    }
+}
+
+
+
+**7. Find Last Occurrence Using Binary Search**
+
+
+using System;
+
+class Program
+{
+    static void Main()
+    {
+        
+    int[] numbers = {10,20,30,20,40,20,50};
+    
+    int searchValue = 20;
+    
+    int left = 0;
+    int right = numbers.Length - 1;
+    
+    int lastIndex = -1;
+    
+    while(left <= right)
+    {
+        int middle = left + (right - left) / 2;
+        
+        if(numbers[middle] == searchValue)
+        {
+            lastIndex = middle;
+            
+            left = middle + 1;
+        }
+        
+        else if(numbers[middle] < searchValue)
+        {
+            left = middle + 1;
+        }
+        else
+        {
+            right = middle - 1;
+        }
+    }
+    
+    
+        if(lastIndex != -1)
+        {
+            Console.WriteLine("Last occurrence = " + lastIndex);
+        }
+    
+        else
+        {
+            Console.WriteLine("Element not found.");
+        }
+    }
+}
