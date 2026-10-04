@@ -1183,3 +1183,81 @@ class Program
         }
     }
 }
+
+
+
+**8. Count Occurrences Using Binary Search**
+
+
+
+using System;
+
+class Program
+{
+    static void Main()
+    {
+        int[] numbers = { 10, 20, 20, 20, 30, 40 };
+
+        int searchValue = 20;
+
+        int left = 0;
+        int right = numbers.Length - 1;
+
+        int firstIndex = -1;
+
+        // Find first occurrence
+        while (left <= right)
+        {
+            int middle = left + (right - left) / 2;
+
+            if (numbers[middle] == searchValue)
+            {
+                firstIndex = middle;
+                right = middle - 1;
+            }
+            else if (numbers[middle] < searchValue)
+            {
+                left = middle + 1;
+            }
+            else
+            {
+                right = middle - 1;
+            }
+        }
+
+        if (firstIndex == -1)
+        {
+            Console.WriteLine("Count = 0");
+            return;
+        }
+
+        left = 0;
+        right = numbers.Length - 1;
+
+        int lastIndex = -1;
+
+        // Find last occurrence
+        while (left <= right)
+        {
+            int middle = left + (right - left) / 2;
+
+            if (numbers[middle] == searchValue)
+            {
+                lastIndex = middle;
+                left = middle + 1;
+            }
+            else if (numbers[middle] < searchValue)
+            {
+                left = middle + 1;
+            }
+            else
+            {
+                right = middle - 1;
+            }
+        }
+
+        int count = lastIndex - firstIndex + 1;
+
+        Console.WriteLine("Count = " + count);
+    }
+}
