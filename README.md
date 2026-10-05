@@ -1184,7 +1184,7 @@ class Program
     }
 }
 
-
+ 
 
 **8. Count Occurrences Using Binary Search**
 
@@ -1259,5 +1259,109 @@ class Program
         int count = lastIndex - firstIndex + 1;
 
         Console.WriteLine("Count = " + count);
+    }
+}
+
+
+
+**9. Find the Insertion Position of an Element**
+
+
+
+using System;
+class HelloWorld {
+  static void Main()
+  {
+    int[] numbers = {10,20,30,50};
+    
+    int target = 40;
+    
+    int left = 0;
+    int right = numbers.Length;
+    
+    while(left < right)
+    {
+        int middle = left + (right - left) / 2;
+        
+        if(numbers[middle] < target)
+        {
+            left = middle + 1;
+        }
+        
+        else
+        {
+            right = middle;
+        }
+    }
+    
+    Console.WriteLine("Insertion Index = " + left);
+  }
+}
+
+
+
+**10. Search in a Rotated Sorted Array**
+
+
+
+using System;
+
+class Program
+{
+    static void Main()
+    {
+        int[] numbers = { 40, 50, 60, 10, 20, 30 };
+
+        int target = 20;
+
+        int left = 0;
+        int right = numbers.Length - 1;
+
+        int index = -1;
+
+        while (left <= right)
+        {
+            int middle = left + (right - left) / 2;
+
+            if (numbers[middle] == target)
+            {
+                index = middle;
+                break;
+            }
+
+            // Left half is sorted
+            if (numbers[left] <= numbers[middle])
+            {
+                if (target >= numbers[left] && target < numbers[middle])
+                {
+                    right = middle - 1;
+                }
+                else
+                {
+                    left = middle + 1;
+                }
+            }
+            // Right half is sorted
+            else
+            {
+                if (target > numbers[middle] && target <= numbers[right])
+                {
+                    left = middle + 1;
+                }
+                else
+                {
+                    right = middle - 1;
+                }
+            }
+        }
+
+        if (index != -1)
+        {
+            Console.WriteLine("Index = " + index);
+        }
+        else
+        {
+            Console.WriteLine("Element not found.");
+        }
     }
 }
