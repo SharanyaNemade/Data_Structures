@@ -1365,3 +1365,15 @@ class Program
         }
     }
 }
+
+
+
+
+**11. Find the Minimum Element in a Rotated Sorted Array**
+
+
+
+
+
+
+
