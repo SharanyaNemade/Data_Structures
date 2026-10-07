@@ -1374,6 +1374,35 @@ class Program
 
 
 
+using System;
 
+class Program
+{
+    static void Main()
+    {
+        int[] numbers = { 40, 50, 60, 10, 20, 30 };
+
+        int left = 0;
+        int right = numbers.Length - 1;
+
+        while (left < right)
+        {
+            int middle = left + (right - left) / 2;
+
+            if (numbers[middle] > numbers[right])
+            {
+                // Minimum is on the right side
+                left = middle + 1;
+            }
+            else
+            {
+                // Minimum is at middle or on the left side
+                right = middle;
+            }
+        }
+
+        Console.WriteLine("Minimum = " + numbers[left]);
+    }
+}
 
 
