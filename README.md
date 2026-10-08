@@ -1406,3 +1406,38 @@ class Program
 }
 
 
+
+**12. Find the Number of Rotations of a Sorted Array**
+
+
+
+using System;
+
+class Program
+{
+    static void Main()
+    {
+        int[] numbers = { 40, 50, 60, 10, 20, 30 };
+
+        int left = 0;
+        int right = numbers.Length - 1;
+
+        while (left < right)
+        {
+            int middle = left + (right - left) / 2;
+
+            if (numbers[middle] > numbers[right])
+            {
+                left = middle + 1;
+            }
+            else
+            {
+                right = middle;
+            }
+        }
+
+        int rotationCount = left;
+
+        Console.WriteLine("Number of rotations = " + rotationCount);
+    }
+}
