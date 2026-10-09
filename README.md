@@ -1441,3 +1441,41 @@ class Program
         Console.WriteLine("Number of rotations = " + rotationCount);
     }
 }
+
+
+
+
+**13. Find the Peak Element**
+
+
+
+using System;
+
+class Program
+{
+    static void Main()
+    {
+        int[] numbers = { 1, 2, 3, 5, 4, 2 };
+
+        int left = 0;
+        int right = numbers.Length - 1;
+
+        while (left < right)
+        {
+            int middle = left + (right - left) / 2;
+
+            if (numbers[middle] < numbers[middle + 1])
+            {
+                // Peak is on the right side
+                left = middle + 1;
+            }
+            else
+            {
+                // Peak is at middle or on the left side
+                right = middle;
+            }
+        }
+
+        Console.WriteLine("Peak element = " + numbers[left]);
+    }
+}
