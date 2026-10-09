@@ -1479,3 +1479,60 @@ class Program
         Console.WriteLine("Peak element = " + numbers[left]);
     }
 }
+
+
+
+**14. Find the Square Root of a Number Using Binary Search**
+
+
+
+using System;
+
+class Program
+{
+    static void Main()
+    {
+        int number = 30;
+
+        if (number < 0)
+        {
+            Console.WriteLine("Square root is not defined for negative numbers.");
+            return;
+        }
+
+        if (number == 0 || number == 1)
+        {
+            Console.WriteLine("Square Root = " + number);
+            return;
+        }
+
+        long left = 1;
+        long right = number / 2;
+
+        long answer = 0;
+
+        while (left <= right)
+        {
+            long middle = left + (right - left) / 2;
+
+            long square = middle * middle;
+
+            if (square == number)
+            {
+                answer = middle;
+                break;
+            }
+            else if (square < number)
+            {
+                answer = middle;
+                left = middle + 1;
+            }
+            else
+            {
+                right = middle - 1;
+            }
+        }
+
+        Console.WriteLine("Integer Square Root = " + answer);
+    }
+}
