@@ -1536,3 +1536,4 @@ class Program
         Console.WriteLine("Integer Square Root = " + answer);
     }
 }
+
