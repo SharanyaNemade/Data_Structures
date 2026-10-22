@@ -1,1 +1,1540 @@
+# Data_Structures
+
+**Array Traversal**
+
+**1. Print all elements of an array**
+
+
+
+using System;
+class HelloWorld 
+{
+  static void Main()
+   {
+    int[] numbers = { 10, 20, 30, 40, 50 };
+    for (int i = 0; i < numbers.Length; i++)
+    {
+      Console.WriteLine(numbers[i]);
+    }
+  }
+}
+
+
+
+
+
+**2. Find the sum of all elements**
+
+
+
+
+using System;
+class HelloWorld
+{
+   static void Main()
+   {
+     int[] numbers = {1,2,3,4,5,6,7,8,9};
+     int sum = 0;
+
+     for(int i = 0; i < numbers.Length; i++)
+     {
+        sum = sum + numbers[i];
+     }
+     Console.WriteLine(sum);
+   }
+}
+
+
+
+
+
+**3. Find the largest element**
+
+
+
+using System;
+class HelloWorld
+{
+   static void Main()
+   {
+      int[] numbers = { 10, 5, 30, 20 };
+      int largest = numbers[0];
+      
+      for (int i = 1; i < numbers.Length; i++)
+     {
+       if (numbers[i] > largest)
+      {
+        largest = numbers[i];
+      }
+     }
+
+Console.WriteLine(largest);
+   }
+}
+
+
+
+
+
+**4. Find the smallest element**
+
+
+
+
+using System;
+class HelloWorld
+{
+  static void Main()
+  {
+    int[] numbers = {10,5,30,20};
+    int smallest = numbers[0];
+
+    for(int i = 1; i < numbers.Length; i++)
+    { 
+    	if(numbers[i] < smallest)
+	{
+	   smallest = numbers[i];
+	}
+    }
+	Console.WriteLine(smallest);
+  }
+}
+
+
+
+
+
+**5. Count even and odd numbers**
+
+
+
+
+using System;
+class HelloWorld
+{
+  static void Main()
+  {
+    
+    int[] numbers = {0,1,2,3,4,5,6,7,8,9,10};
+    
+    int evenCount = 0;
+    int oddCount = 0;
+    
+    for(int i = 0; i < numbers.Length; i++)
+    {
+        if(numbers[i] % 2 == 0)
+        {
+            evenCount++;
+        }
+        
+        else
+        {
+            oddCount++;
+        }
+    }
+    
+    Console.WriteLine("Even = " + evenCount);
+    Console.WriteLine("Even = " + oddCount);
+    
+  }
+}
+
+
+
+
+
+**6. Calculate average of array elements**
+
+
+
+
+using System;
+class HelloWorld
+{
+  static void Main()
+  {
+    
+    int[] numbers = { 10, 20, 30, 40 };
+
+    int sum = 0;
+
+    for (int i = 0; i < numbers.Length; i++)
+    {
+        sum += numbers[i];
+    }
+
+    double average = (double)sum / numbers.Length;
+
+    Console.WriteLine(average);
+    
+  }
+}
+
+
+
+
+
+
+**7. Find Second Largest**
+
+
+
+
+
+using System;
+
+class HelloWorld
+{
+    static void Main()
+    {
+        int[] numbers = { 10, 50, 20, 40, 30 };
+
+        int largest = numbers[0];
+        int secondLargest = numbers[0];
+
+        for (int i = 1; i < numbers.Length; i++)
+        {
+            if (numbers[i] > largest)
+            {
+                secondLargest = largest;
+                largest = numbers[i];
+            }
+            else if (numbers[i] > secondLargest && numbers[i] != largest)
+            {
+                secondLargest = numbers[i];
+            }
+        }
+
+        Console.WriteLine("Largest = " + largest);
+        Console.WriteLine("Second Largest = " + secondLargest);
+    }
+}
+
+
+
+
+
+**8. Find Second Smallest**
+
+
+
+
+
+using System;
+
+class HelloWorld
+{
+    static void Main()
+    {
+        int[] numbers = { 10, 50, 20, 40, 30 };
+
+        int smallest = numbers[0];
+        int secondSmallest = numbers[0];
+
+        for (int i = 1; i < numbers.Length; i++)
+        {
+            if (numbers[i] < smallest)
+            {
+                secondSmallest = smallest;
+                smallest = numbers[i];
+            }
+            else if (numbers[i] < secondSmallest && numbers[i] != smallest)
+            {
+                secondSmallest = numbers[i];
+            }
+        }
+
+        Console.WriteLine("Smallest = " + smallest);
+        Console.WriteLine("Second Smallest = " + secondSmallest);
+    }
+}
+
+
+
+
+
+
+**9. Reverse an array**
+
+
+
+using System;
+class HelloWorld
+{
+  static void Main()
+  {
+    int[] numbers = { 1, 2, 3, 4, 5 };
+
+	int left = 0;
+	int right = numbers.Length - 1;
+
+while (left < right)
+{
+    int temp = numbers[left];
+
+    numbers[left] = numbers[right];
+    numbers[right] = temp;
+
+    left++;
+    right--;
+}
+
+Console.WriteLine(string.Join(", ", numbers));
+  }
+}
+
+
+
+
+**10. Move all zeroes to the end**
+
+
+
+using System;
+class HelloWorld
+{
+  static void Main()
+  {
+    int[] numbers = { 0, 1, 0, 3, 12 };
+
+    int index = 0;
+
+    for (int i = 0; i < numbers.Length; i++)
+    {
+        if (numbers[i] != 0)
+    {
+        numbers[index] = numbers[i];
+        index++;
+    }
+}
+
+while (index < numbers.Length)
+{
+    numbers[index] = 0;
+    index++;
+}
+
+Console.WriteLine(string.Join(", ", numbers));
+  }
+}
+
+
+
+
+**11. Move negative numbers to one side**
+
+
+
+using System;
+class HelloWorld
+{
+  static void Main()
+  {
+    int[] numbers = { -1, 2, -3, 4, -5, 6 };
+
+    int left = 0;
+    int right = numbers.Length - 1;
+
+
+    while (left <= right)
+    {
+        if (numbers[left] < 0)
+    {
+        left++;
+    }
+    
+    else if (numbers[right] >= 0)
+    {
+        right--;
+    }
+    
+    else
+    {
+        int temp = numbers[left];
+        numbers[left] = numbers[right];
+        numbers[right] = temp;
+
+        left++;
+        right--;
+    }
+}
+
+Console.WriteLine(string.Join(", ", numbers));
+  }
+}
+
+
+
+
+
+
+**12. Difference between maximum and minimum**
+
+
+
+
+using System;
+class HelloWorld
+{
+  static void Main()
+  {
+    int[] numbers = { 10, 5, 30, 20 };
+
+    int max = numbers[0];
+    int min = numbers[0];
+
+    for (int i = 1; i < numbers.Length; i++)
+    {
+        if (numbers[i] > max)
+        {
+            max = numbers[i];
+        }
+
+    if (numbers[i] < min)
+        {
+            min = numbers[i];
+        }
+    }
+
+    int difference = max - min;
+
+    Console.WriteLine("Maximum = " + max);
+    Console.WriteLine("Minimum = " + min);
+    Console.WriteLine("Difference = " + difference);
+  }
+}
+
+
+
+
+**Array Insertion / Deletion**
+
+
+
+**1. Insert an element at the beginning**
+
+
+
+using System;
+
+class HelloWorld
+{
+    static void Main()
+    {
+        int[] numbers = { 10, 20, 30, 40 };
+
+        int insertValue = 5;
+
+        int[] newArray = new int[numbers.Length + 1];
+
+        newArray[0] = insertValue;
+
+        for (int i = 0; i < numbers.Length; i++)
+        {
+            newArray[i + 1] = numbers[i];
+        }
+
+        Console.WriteLine("Array after insertion:");
+
+        for (int i = 0; i < newArray.Length; i++)
+        {
+            Console.Write(newArray[i] + " ");
+        }
+    }
+}
+
+
+
+**2. Insert an element at the end**
+
+
+
+using System;
+
+class HelloWorld
+{
+    static void Main()
+    {
+        int[] numbers = { 10, 20, 30, 40 };
+
+        int insertValue = 50;
+
+        int[] newArray = new int[numbers.Length + 1];
+
+        for (int i = 0; i < numbers.Length; i++)
+        {
+            newArray[i] = numbers[i];
+        }
+
+        newArray[numbers.Length] = insertValue;
+
+        Console.WriteLine("Array after insertion:");
+
+        for (int i = 0; i < newArray.Length; i++)
+        {
+            Console.Write(newArray[i] + " ");
+        }
+    }
+}
+
+
+
+**3. Insert an element at a specific index**
+
+
+
+using System;
+
+class HelloWorld
+{
+    static void Main()
+    {
+        int[] numbers = { 10, 20, 30, 40 };
+
+        int insertValue = 25;
+        int index = 2;
+
+        int[] newArray = new int[numbers.Length + 1];
+
+        for (int i = 0; i < index; i++)
+        {
+            newArray[i] = numbers[i];
+        }
+
+        newArray[index] = insertValue;
+
+        for (int i = index; i < numbers.Length; i++)
+        {
+            newArray[i + 1] = numbers[i];
+        }
+
+        Console.WriteLine("Array after insertion:");
+
+        for (int i = 0; i < newArray.Length; i++)
+        {
+            Console.Write(newArray[i] + " ");
+        }
+    }
+}
+
+
+
+
+
+**4. Delete the first element**
+
+
+
+using System;
+
+class HelloWorld
+{
+    static void Main()
+    {
+        int[] numbers = { 10, 20, 30, 40 };
+
+        int[] newArray = new int[numbers.Length - 1];
+
+        for (int i = 1; i < numbers.Length; i++)
+        {
+            newArray[i - 1] = numbers[i];
+        }
+
+        Console.WriteLine("Array after deletion:");
+
+        for (int i = 0; i < newArray.Length; i++)
+        {
+            Console.Write(newArray[i] + " ");
+        }
+    }
+}
+
+
+
+
+**5. Delete the last element**
+
+
+
+using System;
+
+class HelloWorld
+{
+    static void Main()
+    {
+        int[] numbers = { 10, 20, 30, 40 };
+
+        int[] newArray = new int[numbers.Length - 1];
+
+        for (int i = 0; i < numbers.Length - 1; i++)
+        {
+            newArray[i] = numbers[i];
+        }
+
+        Console.WriteLine("Array after deletion:");
+
+        for (int i = 0; i < newArray.Length; i++)
+        {
+            Console.Write(newArray[i] + " ");
+        }
+    }
+}
+
+
+
+
+**6. Delete an element from a specific index**
+
+
+
+using System;
+
+class HelloWorld
+{
+    static void Main()
+    {
+        int[] numbers = { 10, 20, 30, 40 };
+
+        int deleteIndex = 2;
+
+        int[] newArray = new int[numbers.Length - 1];
+
+        for (int i = 0; i < deleteIndex; i++)
+        {
+            newArray[i] = numbers[i];
+        }
+
+        for (int i = deleteIndex; i < numbers.Length - 1; i++)
+        {
+            newArray[i] = numbers[i + 1];
+        }
+
+        Console.WriteLine("Array after deletion:");
+
+        for (int i = 0; i < newArray.Length; i++)
+        {
+            Console.Write(newArray[i] + " ");
+        }
+    }
+}
+
+
+
+**7. Insert Multiple Elements at a Given Position**
+
+
+
+using System;
+
+class HelloWorld
+{
+    static void Main()
+    {
+        int[] numbers = { 10, 20, 30, 40, 50 };
+
+        int[] insertValues = { 100, 200 };
+
+        int index = 2;
+
+        int newLength = numbers.Length + insertValues.Length;
+
+        int[] newArray = new int[newLength];
+
+        // Copy elements before insertion index
+        for (int i = 0; i < index; i++)
+        {
+            newArray[i] = numbers[i];
+        }
+
+        // Insert new elements
+        for (int i = 0; i < insertValues.Length; i++)
+        {
+            newArray[index + i] = insertValues[i];
+        }
+
+        // Copy remaining elements
+        for (int i = index; i < numbers.Length; i++)
+        {
+            newArray[i + insertValues.Length] = numbers[i];
+        }
+
+        Console.WriteLine("Array after insertion:");
+
+        for (int i = 0; i < newArray.Length; i++)
+        {
+            Console.Write(newArray[i] + " ");
+        }
+    }
+}
+
+
+
+**8. Delete All Occurrences of a Given Value**
+
+
+using System;
+
+class HelloWorld
+{
+    static void Main()
+    {
+        int[] numbers = { 10, 20, 10, 30, 10, 40 };
+
+        int deleteValue = 10;
+
+        // Count elements that should remain
+        int count = 0;
+
+        for (int i = 0; i < numbers.Length; i++)
+        {
+            if (numbers[i] != deleteValue)
+            {
+                count++;
+            }
+        }
+
+        int[] newArray = new int[count];
+
+        int index = 0;
+
+        // Copy elements except deleteValue
+        for (int i = 0; i < numbers.Length; i++)
+        {
+            if (numbers[i] != deleteValue)
+            {
+                newArray[index] = numbers[i];
+                index++;
+            }
+        }
+
+        Console.WriteLine("Array after deletion:");
+
+        for (int i = 0; i < newArray.Length; i++)
+        {
+            Console.Write(newArray[i] + " ");
+        }
+    }
+}
+
+
+
+**9. Remove an Element Without Using LINQ**
+
+
+
+using System;
+
+class HelloWorld
+{
+    static void Main()
+    {
+        int[] numbers = { 10, 20, 30, 40, 50 };
+
+        int deleteValue = 30;
+
+        int deleteIndex = -1;
+
+        // Find the index of the value
+        for (int i = 0; i < numbers.Length; i++)
+        {
+            if (numbers[i] == deleteValue)
+            {
+                deleteIndex = i;
+                break;
+            }
+        }
+
+        // Check whether value was found
+        if (deleteIndex == -1)
+        {
+            Console.WriteLine("Element not found.");
+            return;
+        }
+
+        int[] newArray = new int[numbers.Length - 1];
+
+        // Copy elements before deleted index
+        for (int i = 0; i < deleteIndex; i++)
+        {
+            newArray[i] = numbers[i];
+        }
+
+        // Shift remaining elements
+        for (int i = deleteIndex; i < newArray.Length; i++)
+        {
+            newArray[i] = numbers[i + 1];
+        }
+
+        Console.WriteLine("Array after deletion:");
+
+        for (int i = 0; i < newArray.Length; i++)
+        {
+            Console.Write(newArray[i] + " ");
+        }
+    }
+}
+
+
+
+**10. Remove an Element While Maintaining the Original Order**
+
+
+
+using System;
+
+class HelloWorld
+{
+    static void Main()
+    {
+        int[] numbers = { 10, 20, 30, 40, 50 };
+
+        int deleteValue = 30;
+
+        int[] newArray = new int[numbers.Length - 1];
+
+        int index = 0;
+
+        bool found = false;
+
+        for (int i = 0; i < numbers.Length; i++)
+        {
+            if (numbers[i] == deleteValue && !found)
+            {
+                found = true;
+                continue;
+            }
+
+            newArray[index] = numbers[i];
+            index++;
+        }
+
+        Console.WriteLine("Array after deletion:");
+
+        for (int i = 0; i < newArray.Length; i++)
+        {
+            Console.Write(newArray[i] + " ");
+        }
+    }
+}
+
+
+
+
+**11. Remove an Element Without Maintaining Order**
+
+
+
+using System;
+
+class HelloWorld
+{
+    static void Main()
+    {
+        int[] numbers = { 10, 20, 30, 40, 50 };
+
+        int deleteValue = 20;
+
+        int deleteIndex = -1;
+
+        // Find the element
+        for (int i = 0; i < numbers.Length; i++)
+        {
+            if (numbers[i] == deleteValue)
+            {
+                deleteIndex = i;
+                break;
+            }
+        }
+
+        if (deleteIndex == -1)
+        {
+            Console.WriteLine("Element not found.");
+            return;
+        }
+
+        int[] newArray = new int[numbers.Length - 1];
+
+        // Copy all elements except deleted element
+        for (int i = 0; i < numbers.Length - 1; i++)
+        {
+            if (i == deleteIndex)
+            {
+                newArray[i] = numbers[numbers.Length - 1];
+            }
+            else
+            {
+                newArray[i] = numbers[i];
+            }
+        }
+
+        Console.WriteLine("Array after deletion:");
+
+        for (int i = 0; i < newArray.Length; i++)
+        {
+            Console.Write(newArray[i] + " ");
+        }
+    }
+}
+
+
+
+
+
+**Searching — Linear Search**
+
+
+**1. Linear Search**
+
+
+
+using System;
+
+class Program
+{
+    static void Main()
+    {
+        int[] numbers = { 10, 20, 30, 40, 50 };
+
+        int searchValue = 30;
+
+        int index = -1;
+
+        for (int i = 0; i < numbers.Length; i++)
+        {
+            if (numbers[i] == searchValue)
+            {
+                index = i;
+                break;
+            }
+        }
+
+        if (index != -1)
+        {
+            Console.WriteLine("Index = " + index);
+        }
+        else
+        {
+            Console.WriteLine("Element not found.");
+        }
+    }
+}
+
+
+
+**2. Search for the First Occurrence**
+
+
+
+using System;
+
+class Program
+{
+    static void Main()
+    {
+        int[] numbers = { 10, 20, 30, 20, 40 };
+
+        int searchValue = 20;
+
+        int firstIndex = -1;
+
+        for (int i = 0; i < numbers.Length; i++)
+        {
+            if (numbers[i] == searchValue)
+            {
+                firstIndex = i;
+                break;
+            }
+        }
+
+        if (firstIndex != -1)
+        {
+            Console.WriteLine("First occurrence = " + firstIndex);
+        }
+        else
+        {
+            Console.WriteLine("Element not found.");
+        }
+    }
+}
+
+
+
+**3. Search for the Last Occurrence**
+
+
+
+using System;
+
+class Program
+{
+    static void Main()
+    {
+        int[] numbers = { 10, 20, 30, 20, 40 };
+
+        int searchValue = 20;
+
+        int lastIndex = -1;
+
+        for (int i = 0; i < numbers.Length; i++)
+        {
+            if (numbers[i] == searchValue)
+            {
+                lastIndex = i;
+            }
+        }
+
+        if (lastIndex != -1)
+        {
+            Console.WriteLine("Last occurrence = " + lastIndex);
+        }
+        else
+        {
+            Console.WriteLine("Element not found.");
+        }
+    }
+}
+
+
+
+**4. Count Occurrences of an Element**
+
+
+
+using System;
+
+class Program
+{
+    static void Main()
+    {
+        int[] numbers = { 10, 20, 30, 20, 40, 20 };
+
+        int searchValue = 20;
+
+        int count = 0;
+
+        for (int i = 0; i < numbers.Length; i++)
+        {
+            if (numbers[i] == searchValue)
+            {
+                count++;
+            }
+        }
+
+        Console.WriteLine("Count = " + count);
+    }
+}
+
+
+
+
+**5. Binary Search**
+
+
+
+using System;
+
+class Program
+{
+    static void Main()
+    {
+        int[] numbers = { 10, 20, 30, 40, 50, 60 };
+
+        int searchValue = 40;
+
+        int left = 0;
+        int right = numbers.Length - 1;
+
+        int index = -1;
+
+        while (left <= right)
+        {
+            int middle = left + (right - left) / 2;
+
+            if (numbers[middle] == searchValue)
+            {
+                index = middle;
+                break;
+            }
+            else if (numbers[middle] < searchValue)
+            {
+                left = middle + 1;
+            }
+            else
+            {
+                right = middle - 1;
+            }
+        }
+
+        if (index != -1)
+        {
+            Console.WriteLine("Index = " + index);
+        }
+        else
+        {
+            Console.WriteLine("Element not found.");
+        }
+    }
+}
+
+
+
+
+**6. Find First Occurrence Using Binary Search **
+
+
+using System;
+
+class Program
+{
+    static void Main()
+    {
+        int[] numbers = { 10, 20, 20, 20, 30, 40 };
+
+        int searchValue = 20;
+
+        int left = 0;
+        int right = numbers.Length - 1;
+
+        int firstIndex = -1;
+
+        while (left <= right)
+        {
+            int middle = left + (right - left) / 2;
+
+            if (numbers[middle] == searchValue)
+            {
+                firstIndex = middle;
+
+                // Continue searching on the left side
+                right = middle - 1;
+            }
+            else if (numbers[middle] < searchValue)
+            {
+                left = middle + 1;
+            }
+            else
+            {
+                right = middle - 1;
+            }
+        }
+
+        if (firstIndex != -1)
+        {
+            Console.WriteLine("First occurrence = " + firstIndex);
+        }
+        else
+        {
+            Console.WriteLine("Element not found.");
+        }
+    }
+}
+
+
+
+**7. Find Last Occurrence Using Binary Search**
+
+
+using System;
+
+class Program
+{
+    static void Main()
+    {
+        
+    int[] numbers = {10,20,30,20,40,20,50};
+    
+    int searchValue = 20;
+    
+    int left = 0;
+    int right = numbers.Length - 1;
+    
+    int lastIndex = -1;
+    
+    while(left <= right)
+    {
+        int middle = left + (right - left) / 2;
+        
+        if(numbers[middle] == searchValue)
+        {
+            lastIndex = middle;
+            
+            left = middle + 1;
+        }
+        
+        else if(numbers[middle] < searchValue)
+        {
+            left = middle + 1;
+        }
+        else
+        {
+            right = middle - 1;
+        }
+    }
+    
+    
+        if(lastIndex != -1)
+        {
+            Console.WriteLine("Last occurrence = " + lastIndex);
+        }
+    
+        else
+        {
+            Console.WriteLine("Element not found.");
+        }
+    }
+}
+
+ 
+
+**8. Count Occurrences Using Binary Search**
+
+
+
+using System;
+
+class Program
+{
+    static void Main()
+    {
+        int[] numbers = { 10, 20, 20, 20, 30, 40 };
+
+        int searchValue = 20;
+
+        int left = 0;
+        int right = numbers.Length - 1;
+
+        int firstIndex = -1;
+
+        // Find first occurrence
+        while (left <= right)
+        {
+            int middle = left + (right - left) / 2;
+
+            if (numbers[middle] == searchValue)
+            {
+                firstIndex = middle;
+                right = middle - 1;
+            }
+            else if (numbers[middle] < searchValue)
+            {
+                left = middle + 1;
+            }
+            else
+            {
+                right = middle - 1;
+            }
+        }
+
+        if (firstIndex == -1)
+        {
+            Console.WriteLine("Count = 0");
+            return;
+        }
+
+        left = 0;
+        right = numbers.Length - 1;
+
+        int lastIndex = -1;
+
+        // Find last occurrence
+        while (left <= right)
+        {
+            int middle = left + (right - left) / 2;
+
+            if (numbers[middle] == searchValue)
+            {
+                lastIndex = middle;
+                left = middle + 1;
+            }
+            else if (numbers[middle] < searchValue)
+            {
+                left = middle + 1;
+            }
+            else
+            {
+                right = middle - 1;
+            }
+        }
+
+        int count = lastIndex - firstIndex + 1;
+
+        Console.WriteLine("Count = " + count);
+    }
+}
+
+
+
+**9. Find the Insertion Position of an Element**
+
+
+
+using System;
+class HelloWorld {
+  static void Main()
+  {
+    int[] numbers = {10,20,30,50};
+    
+    int target = 40;
+    
+    int left = 0;
+    int right = numbers.Length;
+    
+    while(left < right)
+    {
+        int middle = left + (right - left) / 2;
+        
+        if(numbers[middle] < target)
+        {
+            left = middle + 1;
+        }
+        
+        else
+        {
+            right = middle;
+        }
+    }
+    
+    Console.WriteLine("Insertion Index = " + left);
+  }
+}
+
+
+
+**10. Search in a Rotated Sorted Array**
+
+
+
+using System;
+
+class Program
+{
+    static void Main()
+    {
+        int[] numbers = { 40, 50, 60, 10, 20, 30 };
+
+        int target = 20;
+
+        int left = 0;
+        int right = numbers.Length - 1;
+
+        int index = -1;
+
+        while (left <= right)
+        {
+            int middle = left + (right - left) / 2;
+
+            if (numbers[middle] == target)
+            {
+                index = middle;
+                break;
+            }
+
+            // Left half is sorted
+            if (numbers[left] <= numbers[middle])
+            {
+                if (target >= numbers[left] && target < numbers[middle])
+                {
+                    right = middle - 1;
+                }
+                else
+                {
+                    left = middle + 1;
+                }
+            }
+            // Right half is sorted
+            else
+            {
+                if (target > numbers[middle] && target <= numbers[right])
+                {
+                    left = middle + 1;
+                }
+                else
+                {
+                    right = middle - 1;
+                }
+            }
+        }
+
+        if (index != -1)
+        {
+            Console.WriteLine("Index = " + index);
+        }
+        else
+        {
+            Console.WriteLine("Element not found.");
+        }
+    }
+}
+
+
+
+
+**11. Find the Minimum Element in a Rotated Sorted Array**
+
+
+
+
+using System;
+
+class Program
+{
+    static void Main()
+    {
+        int[] numbers = { 40, 50, 60, 10, 20, 30 };
+
+        int left = 0;
+        int right = numbers.Length - 1;
+
+        while (left < right)
+        {
+            int middle = left + (right - left) / 2;
+
+            if (numbers[middle] > numbers[right])
+            {
+                // Minimum is on the right side
+                left = middle + 1;
+            }
+            else
+            {
+                // Minimum is at middle or on the left side
+                right = middle;
+            }
+        }
+
+        Console.WriteLine("Minimum = " + numbers[left]);
+    }
+}
+
+
+
+**12. Find the Number of Rotations of a Sorted Array**
+
+
+
+using System;
+
+class Program
+{
+    static void Main()
+    {
+        int[] numbers = { 40, 50, 60, 10, 20, 30 };
+
+        int left = 0;
+        int right = numbers.Length - 1;
+
+        while (left < right)
+        {
+            int middle = left + (right - left) / 2;
+
+            if (numbers[middle] > numbers[right])
+            {
+                left = middle + 1;
+            }
+            else
+            {
+                right = middle;
+            }
+        }
+
+        int rotationCount = left;
+
+        Console.WriteLine("Number of rotations = " + rotationCount);
+    }
+}
+
+
+
+
+**13. Find the Peak Element**
+
+
+
+using System;
+
+class Program
+{
+    static void Main()
+    {
+        int[] numbers = { 1, 2, 3, 5, 4, 2 };
+
+        int left = 0;
+        int right = numbers.Length - 1;
+
+        while (left < right)
+        {
+            int middle = left + (right - left) / 2;
+
+            if (numbers[middle] < numbers[middle + 1])
+            {
+                // Peak is on the right side
+                left = middle + 1;
+            }
+            else
+            {
+                // Peak is at middle or on the left side
+                right = middle;
+            }
+        }
+
+        Console.WriteLine("Peak element = " + numbers[left]);
+    }
+}
+
+
+
+**14. Find the Square Root of a Number Using Binary Search**
+
+
+
+using System;
+
+class Program
+{
+    static void Main()
+    {
+        int number = 30;
+
+        if (number < 0)
+        {
+            Console.WriteLine("Square root is not defined for negative numbers.");
+            return;
+        }
+
+        if (number == 0 || number == 1)
+        {
+            Console.WriteLine("Square Root = " + number);
+            return;
+        }
+
+        long left = 1;
+        long right = number / 2;
+
+        long answer = 0;
+
+        while (left <= right)
+        {
+            long middle = left + (right - left) / 2;
+
+            long square = middle * middle;
+
+            if (square == number)
+            {
+                answer = middle;
+                break;
+            }
+            else if (square < number)
+            {
+                answer = middle;
+                left = middle + 1;
+            }
+            else
+            {
+                right = middle - 1;
+            }
+        }
+
+        Console.WriteLine("Integer Square Root = " + answer);
+    }
+}
+
 
