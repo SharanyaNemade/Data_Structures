@@ -3,7 +3,7 @@ String
 Question: Reverse a string without using Array.Reverse()
 
 
-Reverse a String
+1. Reverse a String
 
 
 using System;
@@ -32,5 +32,48 @@ class Program
         }
 
         Console.WriteLine();
+    }
+}
+
+
+
+2. Check Whether a String Is a Palindrome
+
+
+
+
+using System;
+
+class Program
+{
+    static void Main()
+    {
+        string input = "madam";
+
+        int left = 0;
+        int right = input.Length - 1;
+
+        bool isPalindrome = true;
+
+        while (left < right)
+        {
+            if (input[left] != input[right])
+            {
+                isPalindrome = false;
+                break;
+            }
+
+            left++;
+            right--;
+        }
+
+        if (isPalindrome)
+        {
+            Console.WriteLine("String is a palindrome.");
+        }
+        else
+        {
+            Console.WriteLine("String is not a palindrome.");
+        }
     }
 }
