@@ -142,3 +142,42 @@ class Program
 
 
 
+
+4. Count the Frequency of Each Character
+
+
+
+using System;
+
+class Program
+{
+    static void Main()
+    {
+        string input = "programming";
+
+        // C# char values range from 0 to 65535
+        int[] frequency = new int[65536];
+        bool[] printed = new bool[65536];
+
+        // Count each character
+        for (int i = 0; i < input.Length; i++)
+        {
+            frequency[input[i]]++;
+        }
+
+        // Print each character only once,
+        // in its original order
+        for (int i = 0; i < input.Length; i++)
+        {
+            char ch = input[i];
+
+            if (!printed[ch])
+            {
+                Console.WriteLine(
+                    "'" + ch + "' = " + frequency[ch]);
+
+                printed[ch] = true;
+            }
+        }
+    }
+}
