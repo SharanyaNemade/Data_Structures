@@ -77,3 +77,64 @@ class Program
         }
     }
 }
+
+
+
+
+
+3. Count Vowels, Consonants, Digits, and Spaces
+
+
+
+
+using System;
+
+class Program
+{
+    static void Main()
+    {
+        string input = "DotNet 123";
+
+        int vowels = 0;
+        int consonants = 0;
+        int digits = 0;
+        int spaces = 0;
+
+        for (int i = 0; i < input.Length; i++)
+        {
+            char ch = input[i];
+
+            // Convert uppercase English letters to lowercase
+            if (ch >= 'A' && ch <= 'Z')
+            {
+                ch = (char)(ch + 32);
+            }
+
+            if (ch >= 'a' && ch <= 'z')
+            {
+                if (ch == 'a' || ch == 'e' ||
+                    ch == 'i' || ch == 'o' || ch == 'u')
+                {
+                    vowels++;
+                }
+                else
+                {
+                    consonants++;
+                }
+            }
+            else if (ch >= '0' && ch <= '9')
+            {
+                digits++;
+            }
+            else if (ch == ' ')
+            {
+                spaces++;
+            }
+        }
+
+        Console.WriteLine("Vowels: " + vowels);
+        Console.WriteLine("Consonants: " + consonants);
+        Console.WriteLine("Digits: " + digits);
+        Console.WriteLine("Spaces: " + spaces);
+    }
+}
