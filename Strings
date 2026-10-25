@@ -182,3 +182,37 @@ class Program
     }
 }
 
+
+
+
+
+5. Remove Duplicate Characters While Preserving Order
+
+
+
+using System;
+
+class Program
+{
+    static void Main()
+    {
+        string input = "banana";
+
+        bool[] seen = new bool[65536];
+
+        Console.Write("After removing duplicates: ");
+
+        for (int i = 0; i < input.Length; i++)
+        {
+            char ch = input[i];
+
+            if (!seen[ch])
+            {
+                Console.Write(ch);
+                seen[ch] = true;
+            }
+        }
+
+        Console.WriteLine();
+    }
+}
