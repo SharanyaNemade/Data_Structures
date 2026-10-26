@@ -216,3 +216,57 @@ class Program
         Console.WriteLine();
     }
 }
+
+
+
+
+
+Level 2 — Medium
+6. Check Whether Two Strings Are Anagrams
+
+
+using System;
+
+class Program
+{
+    static void Main()
+    {
+        string first = "listen";
+        string second = "silent";
+
+        bool isAnagram = true;
+
+        if (first.Length != second.Length)
+        {
+            isAnagram = false;
+        }
+        else
+        {
+            int[] frequency = new int[65536];
+
+            for (int i = 0; i < first.Length; i++)
+            {
+                frequency[first[i]]++;
+                frequency[second[i]]--;
+            }
+
+            for (int i = 0; i < frequency.Length; i++)
+            {
+                if (frequency[i] != 0)
+                {
+                    isAnagram = false;
+                    break;
+                }
+            }
+        }
+
+        if (isAnagram)
+        {
+            Console.WriteLine("Strings are anagrams.");
+        }
+        else
+        {
+            Console.WriteLine("Strings are not anagrams.");
+        }
+    }
+}
