@@ -270,3 +270,49 @@ class Program
         }
     }
 }
+
+
+
+
+
+7. Find the First Non-Repeating Character
+
+
+
+using System;
+
+class Program
+{
+    static void Main()
+    {
+        string input = "swiss";
+
+        int[] frequency = new int[65536];
+
+        // Count each character
+        for (int i = 0; i < input.Length; i++)
+        {
+            frequency[input[i]]++;
+        }
+
+        bool found = false;
+
+        // Find the first character with frequency 1
+        for (int i = 0; i < input.Length; i++)
+        {
+            if (frequency[input[i]] == 1)
+            {
+                Console.WriteLine(
+                    "First non-repeating character: " + input[i]);
+
+                found = true;
+                break;
+            }
+        }
+
+        if (!found)
+        {
+            Console.WriteLine("No non-repeating character found.");
+        }
+    }
+}
