@@ -316,3 +316,72 @@ class Program
         }
     }
 }
+
+
+
+
+
+8. Reverse the Words in a Sentence
+
+
+Question: Reverse the order of words without reversing the characters within each word.
+
+Example: I love CSharp → CSharp love I
+
+
+
+using System;
+
+class Program
+{
+    static void Main()
+    {
+        string input = "I love CSharp";
+
+        char[] characters = new char[input.Length];
+
+        // Copy string into character array
+        for (int i = 0; i < input.Length; i++)
+        {
+            characters[i] = input[i];
+        }
+
+        // Reverse the complete character array
+        ReverseRange(characters, 0, characters.Length - 1);
+
+        int start = 0;
+
+        // Reverse each individual word
+        for (int i = 0; i <= characters.Length; i++)
+        {
+            if (i == characters.Length || characters[i] == ' ')
+            {
+                ReverseRange(characters, start, i - 1);
+
+                start = i + 1;
+            }
+        }
+
+        Console.Write("Reversed words: ");
+
+        for (int i = 0; i < characters.Length; i++)
+        {
+            Console.Write(characters[i]);
+        }
+
+        Console.WriteLine();
+    }
+
+    static void ReverseRange(char[] characters, int left, int right)
+    {
+        while (left < right)
+        {
+            char temp = characters[left];
+            characters[left] = characters[right];
+            characters[right] = temp;
+
+            left++;
+            right--;
+        }
+    }
+}
