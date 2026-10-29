@@ -385,3 +385,64 @@ class Program
         }
     }
 }
+
+
+
+
+9. Find the Longest Word in a Sentence
+Question: Find the longest word without using Split().
+
+Example: I am learning ASP.NET Core
+
+
+
+using System;
+
+class Program
+{
+    static void Main()
+    {
+        string sentence = "I am learning ASP.NET Core";
+
+        int currentStart = 0;
+
+        int longestStart = 0;
+        int longestLength = 0;
+
+        for (int i = 0; i <= sentence.Length; i++)
+        {
+            if (i == sentence.Length || sentence[i] == ' ')
+            {
+                int currentLength = i - currentStart;
+
+                if (currentLength > longestLength)
+                {
+                    longestLength = currentLength;
+                    longestStart = currentStart;
+                }
+
+                currentStart = i + 1;
+            }
+        }
+
+        if (longestLength == 0)
+        {
+            Console.WriteLine("No word found.");
+        }
+        else
+        {
+            Console.Write("Longest word: ");
+
+            for (int i = longestStart;
+                 i < longestStart + longestLength;
+                 i++)
+            {
+                Console.Write(sentence[i]);
+            }
+
+            Console.WriteLine();
+
+            Console.WriteLine("Length: " + longestLength);
+        }
+    }
+}
