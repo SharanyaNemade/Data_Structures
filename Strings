@@ -446,3 +446,81 @@ class Program
         }
     }
 }
+
+
+
+10. Compress a String Using Character Counts
+Question: Convert consecutive repeated characters into a character followed by its count.
+
+Example: aaabbccccd → a3b2c4d1
+
+
+
+using System;
+
+class Program
+{
+    static void Main()
+    {
+        string input = "aaabbccccd";
+
+        char[] result = new char[input.Length * 2];
+
+        int i = 0;
+        int resultIndex = 0;
+
+        while (i < input.Length)
+        {
+            char current = input[i];
+
+            int count = 0;
+
+            // Count consecutive occurrences
+            while (i < input.Length && input[i] == current)
+            {
+                count++;
+                i++;
+            }
+
+            // Store the character
+            result[resultIndex] = current;
+            resultIndex++;
+
+            // Store the digits of count in reverse order
+            int tempCount = count;
+            int digitStart = resultIndex;
+
+            do
+            {
+                result[resultIndex] = (char)('0' + tempCount % 10);
+                resultIndex++;
+
+                tempCount = tempCount / 10;
+            }
+            while (tempCount > 0);
+
+            // Reverse the stored count digits
+            int left = digitStart;
+            int right = resultIndex - 1;
+
+            while (left < right)
+            {
+                char temp = result[left];
+                result[left] = result[right];
+                result[right] = temp;
+
+                left++;
+                right--;
+            }
+        }
+
+        Console.Write("Compressed string: ");
+
+        for (int j = 0; j < resultIndex; j++)
+        {
+            Console.Write(result[j]);
+        }
+
+        Console.WriteLine();
+    }
+}
