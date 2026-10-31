@@ -524,3 +524,69 @@ class Program
         Console.WriteLine();
     }
 }
+
+
+
+
+Level 3 — Hard / Advanced
+11. Find the Longest Substring Without Repeating Characters
+Question: Find the longest continuous substring in which no character repeats.
+
+Example: abcabcbb → abc, length 3.
+
+
+
+using System;
+
+class Program
+{
+    static void Main()
+    {
+        string input = "abcabcbb";
+
+        // Store the last index at which each character appeared
+        int[] lastSeen = new int[65536];
+
+        for (int i = 0; i < lastSeen.Length; i++)
+        {
+            lastSeen[i] = -1;
+        }
+
+        int left = 0;
+
+        int bestStart = 0;
+        int bestLength = 0;
+
+        for (int right = 0; right < input.Length; right++)
+        {
+            char current = input[right];
+
+            // If the character repeats inside the current window,
+            // move the left boundary past its previous occurrence.
+            if (lastSeen[current] >= left)
+            {
+                left = lastSeen[current] + 1;
+            }
+
+            lastSeen[current] = right;
+
+            int currentLength = right - left + 1;
+
+            if (currentLength > bestLength)
+            {
+                bestLength = currentLength;
+                bestStart = left;
+            }
+        }
+
+        Console.Write("Longest substring: ");
+
+        for (int i = bestStart; i < bestStart + bestLength; i++)
+        {
+            Console.Write(input[i]);
+        }
+
+        Console.WriteLine();
+        Console.WriteLine("Length: " + bestLength);
+    }
+}
