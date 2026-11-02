@@ -590,3 +590,81 @@ class Program
         Console.WriteLine("Length: " + bestLength);
     }
 }
+
+
+
+
+12. Find the Longest Palindromic Substring
+Question: Find the longest continuous substring that is a palindrome.
+
+Example: babad → bab (or aba).
+
+
+
+
+using System;
+
+class Program
+{
+    static void Main()
+    {
+        string input = "babad";
+
+        char[] characters = new char[input.Length];
+
+        for (int i = 0; i < input.Length; i++)
+        {
+            characters[i] = input[i];
+        }
+
+        int bestStart = 0;
+        int bestLength = 0;
+
+        for (int center = 0; center < characters.Length; center++)
+        {
+            // Odd-length palindrome, such as "bab"
+            ExpandAroundCenter(
+                characters, center, center,
+                ref bestStart, ref bestLength);
+
+            // Even-length palindrome, such as "abba"
+            ExpandAroundCenter(
+                characters, center, center + 1,
+                ref bestStart, ref bestLength);
+        }
+
+        Console.Write("Longest palindrome: ");
+
+        for (int i = bestStart; i < bestStart + bestLength; i++)
+        {
+            Console.Write(characters[i]);
+        }
+
+        Console.WriteLine();
+        Console.WriteLine("Length: " + bestLength);
+    }
+
+    static void ExpandAroundCenter(
+        char[] characters,
+        int left,
+        int right,
+        ref int bestStart,
+        ref int bestLength)
+    {
+        while (left >= 0 &&
+               right < characters.Length &&
+               characters[left] == characters[right])
+        {
+            int currentLength = right - left + 1;
+
+            if (currentLength > bestLength)
+            {
+                bestStart = left;
+                bestLength = currentLength;
+            }
+
+            left--;
+            right++;
+        }
+    }
+}
