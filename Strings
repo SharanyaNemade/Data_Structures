@@ -668,3 +668,95 @@ class Program
         }
     }
 }
+
+
+
+
+
+13. Convert a String to an Integer Without int.Parse()
+Question: Implement basic string-to-integer conversion, including leading spaces, an optional sign, and overflow handling.
+
+Example: "   -12345abc" → -12345
+
+
+
+
+using System;
+
+class Program
+{
+    static void Main()
+    {
+        string input = "   -12345abc";
+
+        int index = 0;
+
+        // Skip leading whitespace
+        while (index < input.Length &&
+               (input[index] == ' ' ||
+                input[index] == '\t' ||
+                input[index] == '\n' ||
+                input[index] == '\r'))
+        {
+            index++;
+        }
+
+        // Read the optional sign
+        bool isNegative = false;
+
+        if (index < input.Length &&
+            (input[index] == '-' || input[index] == '+'))
+        {
+            if (input[index] == '-')
+            {
+                isNegative = true;
+            }
+
+            index++;
+        }
+
+        long number = 0;
+
+        // Use limits that account for the sign
+        long limit = isNegative ? 2147483648L : 2147483647L;
+
+        // Read digits until a non-digit is encountered
+        while (index < input.Length)
+        {
+            char ch = input[index];
+
+            if (ch < '0' || ch > '9')
+            {
+                break;
+            }
+
+            int digit = ch - '0';
+
+            // Check overflow before multiplying by 10
+            if (number > (limit - digit) / 10)
+            {
+                number = limit;
+                break;
+            }
+
+            number = number * 10 + digit;
+
+            index++;
+        }
+
+        long result = isNegative ? -number : number;
+
+        // Clamp the result to the 32-bit integer range
+        if (result > 2147483647L)
+        {
+            result = 2147483647L;
+        }
+
+        if (result < -2147483648L)
+        {
+            result = -2147483648L;
+        }
+
+        Console.WriteLine("Integer value: " + (int)result);
+    }
+}
