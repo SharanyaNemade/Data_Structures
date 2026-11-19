@@ -3,7 +3,8 @@ Easy-level hashing problems with complete programs
 
 Problem 1: Count the frequency of each number in an array
 
-
+Problem statement:-
+Given an integer array, count how many times each number occurs and display its frequency.
 
 using System;
 using System.Collections.Generic;
@@ -34,3 +35,13 @@ class Program
         }
     }
 }
+
+
+
+Problem 2: Find duplicate elements in an array
+
+
+Problem statement:-
+Given an integer array, identify all numbers that appear more than once. Print each duplicate only once.
+
+
