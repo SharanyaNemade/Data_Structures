@@ -76,3 +76,47 @@ class Program
         Console.WriteLine();
     }
 }
+
+
+
+Problem 3: Find the first repeated element
+
+
+Problem statement
+Given an array of integers, find the first element that repeats while scanning from left to right.
+
+
+
+using System;
+using System.Collections.Generic;
+
+class Program
+{
+    static void Main()
+    {
+        int[] numbers = { 10, 20, 30, 40, 20, 50, 10 };
+
+        HashSet<int> seen = new HashSet<int>();
+
+        bool found = false;
+
+        for (int i = 0; i < numbers.Length; i++)
+        {
+            if (seen.Contains(numbers[i]))
+            {
+                Console.WriteLine(
+                    "First repeated element: " + numbers[i]);
+
+                found = true;
+                break;
+            }
+
+            seen.Add(numbers[i]);
+        }
+
+        if (!found)
+        {
+            Console.WriteLine("No repeated element found.");
+        }
+    }
+}
